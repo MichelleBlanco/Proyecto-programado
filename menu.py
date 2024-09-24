@@ -2,8 +2,8 @@ import tkinter as tk
 from PIL import Image, ImageTk
 
 def crear_crucigrama():
-    import crear_crucigrama
-    crear_crucigrama()
+    from crear_crucigrama import crear_segunda_ventana
+    crear_segunda_ventana()
 
 def cargar_crucigrama():
     import cargar_crucigrama
@@ -15,7 +15,7 @@ def salir_juego():
 #CREACIÓN DE LA VENTANA
 ventana = tk.Tk()
 ventana.title("Generador de crucigramas 3D")
-ventana.geometry("800x800")
+ventana.geometry("1550x900")
 
 #FONDO
 image = Image.open("fondo.jpg")  
