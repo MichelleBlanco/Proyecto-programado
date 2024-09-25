@@ -1,8 +1,7 @@
 import tkinter as tk
 from PIL import Image, ImageTk
-from ingresar import ingresar_palabra
+from tkinter import messagebox
 
-nombre_crucigrama = []
 def crear_segunda_ventana():
     # Crear una nueva ventana secundaria
     segunda_ventana = tk.Toplevel()
@@ -22,16 +21,24 @@ def crear_segunda_ventana():
     entrada_nombre = tk.Entry(segunda_ventana, fg='grey')
     entrada_nombre.pack(pady=25)
 
-    #BOTONES
-    create_button = tk.Button(segunda_ventana, text="Crear Crucigrama", width=18, command=ingresar_palabra(), font=("Courier", 14), bg="lightblue")
-    create_button.pack(pady=30)
+    def continuar():
+        while True:
+            nombre = entrada_nombre.get()  # Obtener el nombre ingresado
+            if nombre:  # Verificar que no esté vacío
+                from ingresar import ingresar_palabra
+                ingresar_palabra()
+            else:
+                messagebox.showinfo("Debe ingresar un nombre")
+                crear_segunda_ventana()
+            break 
+
+    continuar_button = tk.Button(segunda_ventana, text="Continuar", command=continuar)
+    continuar_button.pack(pady=10)  
 
     # Agregar un botón para cerrar la ventana secundaria
     close_button = tk.Button(segunda_ventana, text="Cerrar", command=segunda_ventana.destroy)
     close_button.pack(pady=10)
-
-    nombre_crucigrama.append(entrada_nombre)
-    print(nombre_crucigrama)
+    segunda_ventana.mainloop()
 
     # Agregar un botón para cerrar la ventana secundaria
     close_button = tk.Button(segunda_ventana, text="Cerrar", command=segunda_ventana.destroy)
