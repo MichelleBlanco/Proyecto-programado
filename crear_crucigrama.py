@@ -36,7 +36,7 @@ def crear_segunda_ventana():
             if nombre and tematica:  # Verificar que no esté vacío
                 from ingresar import ingresar_palabra
                 ingresar_palabra()
-                with open(f"{nombre}.c3d","r") as archivo:
+                with open(f"{nombre}.c3d","x") as archivo:
                     contenido = archivo.read()  # Lee el contenido o lo que necesites
                     print(contenido)
             else:
