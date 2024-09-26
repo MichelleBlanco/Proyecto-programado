@@ -1,6 +1,7 @@
 import tkinter as tk
 from PIL import Image, ImageTk
 
+
 def crear_crucigrama():
     from crear_crucigrama import crear_segunda_ventana
     crear_segunda_ventana()
